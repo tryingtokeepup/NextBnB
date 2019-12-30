@@ -1,0 +1,18 @@
+[
+  {
+    "picture": "/img/houses/1.jpg",
+    "type": "Entire House",
+    "town": "Honolulu",
+    "title": "Beautiful small home in Honolulu!",
+    "rating": 4.78,
+    "reviewsCount": 180
+  },
+  {
+    "picture": "/img/houses/2.jpg",
+    "type": "Entire House",
+    "town": "North Shore",
+    "title": "A great beach house on the North Shore!",
+    "rating": 4.83,
+    "reviewsCount": 129
+  }
+]
