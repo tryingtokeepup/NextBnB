@@ -1,7 +1,7 @@
-const House = () => {
+const House = () => (
   <div>
     <h2>House</h2>
-  </div>;
-};
-
+  </div>
+);
+// implicit returns with arrow fnctions are strange beasts
 export default House;
