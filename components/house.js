@@ -7,7 +7,14 @@ const House = props => {
         width="100%"
         alt="A picture of the rental house"
       />
-      <h2>House</h2>
+      <p>
+        {props.type} - {props.town}
+      </p>
+
+      <p>{props.title}</p>
+      <p>
+        {props.rating} ({props.reviewsCount})
+      </p>
     </div>
   );
 };
