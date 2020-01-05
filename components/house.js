@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const House = props => {
   // we are passing props down with {... house} spreading in the index
   return (

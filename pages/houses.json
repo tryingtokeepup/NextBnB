@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "picture": "/img/houses/1.jpg",
     "type": "Entire House",
     "town": "Honolulu",
@@ -8,6 +9,8 @@
     "reviewsCount": 180
   },
   {
+    "id": 2,
+
     "picture": "/img/houses/2.jpg",
     "type": "Entire House",
     "town": "North Shore",
