@@ -1,8 +1,10 @@
 // use this component as the "shell" or common UI for every component
-
+import Header from './Header';
 const Layout = props => {
   return (
     <div>
+      <Header />
+
       <main>{props.content}</main>
 
       <style jsx global>{`
