@@ -1,7 +1,8 @@
 import houses from './houses.json';
 import House from '../components/house.js';
+import Layout from '../components/Layout';
 
-const Index = () => (
+const content = (
   <div>
     <h1>Nextbnb</h1>
     <h2>Places to Stay</h2>
@@ -23,4 +24,6 @@ const Index = () => (
   </div>
 );
 
+// wow, this is really cool, encapsulation
+const Index = () => <Layout content={content} />;
 export default Index;
