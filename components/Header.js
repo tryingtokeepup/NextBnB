@@ -31,6 +31,7 @@ const Header = () => (
       li {
         display: block;
         float: left;
+        size: 2em;
       }
 
       a {
