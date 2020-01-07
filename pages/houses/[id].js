@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Layout from '../../components/Layout';
 
 import houses from '../houses.json';
+import DateRangePicker from '../../components/DateRangePicker';
 
 const House = props => (
   <Layout
@@ -23,6 +24,7 @@ const House = props => (
         </article>
         <aside>
           <h2>Add dates for prices</h2>
+          <DateRangePicker />
         </aside>
 
         {/* Styling */}
