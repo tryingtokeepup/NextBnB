@@ -15,9 +15,29 @@ const formatDate = (date, format, locale) =>
 
 const format = 'dd MMM yyyy';
 
+const today = new Date();
+const tomorrow = new Date(today);
+
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+// helper function to count nights between dates
+const numberOfNightsBetweenDates = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  let dayCount = 0;
+
+  while (end > start) {
+    dayCount++;
+    start.setDate(start.getDate() + 1);
+  }
+
+  return dayCount;
+};
+
 export default () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(tomorrow);
 
   return (
     <div className="date-range-picker-container">
@@ -27,6 +47,7 @@ export default () => {
           formatDate={formatDate}
           format={format}
           parseDate={parseDate}
+          value={startDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
@@ -37,6 +58,13 @@ export default () => {
           }}
           onDayChange={day => {
             setStartDate(day);
+            // check to see if the day picked is AFTER the endDate
+            // ... if so, we need to move the endDate back until it is the day after the startDate!
+            if (numberOfNightsBetweenDates(day, endDate) < 1) {
+              const newEndDate = new Date(day);
+              newEndDate.setDate(newEndDate.getDate() + 1);
+              setEndDate(newEndDate);
+            }
           }}
         />
       </div>
@@ -46,11 +74,13 @@ export default () => {
           formatDate={formatDate}
           format={format}
           parseDate={parseDate}
+          value={endDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
               disabled: {
-                before: new Date()
+                startDate,
+                before: startDate
               }
             }
           }}
