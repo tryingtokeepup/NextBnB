@@ -1,5 +1,5 @@
 import houses from './houses.json';
-import House from '../components/house.js';
+import House from '../components/House.js';
 import Layout from '../components/Layout';
 
 const content = (
