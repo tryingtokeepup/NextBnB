@@ -35,7 +35,7 @@ const numberOfNightsBetweenDates = (startDate, endDate) => {
   return dayCount;
 };
 
-export default () => {
+export default ({ datesChanged }) => {
   const [startDate, setStartDate] = useState(today);
   const [endDate, setEndDate] = useState(tomorrow);
 
@@ -58,13 +58,15 @@ export default () => {
           }}
           onDayChange={day => {
             setStartDate(day);
+            const newEndDate = new Date(day);
+
             // check to see if the day picked is AFTER the endDate
             // ... if so, we need to move the endDate back until it is the day after the startDate!
             if (numberOfNightsBetweenDates(day, endDate) < 1) {
-              const newEndDate = new Date(day);
               newEndDate.setDate(newEndDate.getDate() + 1);
               setEndDate(newEndDate);
             }
+            datesChanged(day, newEndDate);
           }}
         />
       </div>

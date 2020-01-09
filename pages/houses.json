@@ -6,6 +6,7 @@
     "type": "Entire House",
     "town": "Honolulu",
     "title": "Beautiful small home in Honolulu!",
+    "price": "100.00",
     "rating": 4.78,
     "reviewsCount": 180,
     "superhost": true,
@@ -37,6 +38,7 @@
     "type": "Entire House",
     "town": "North Shore",
     "title": "A great beach house on the North Shore!",
+    "price": "80.00",
     "rating": 4.83,
     "reviewsCount": 129,
     "superhost": false
