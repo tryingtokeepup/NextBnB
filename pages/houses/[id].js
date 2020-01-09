@@ -25,7 +25,11 @@ const House = props => (
         <aside>
           <h2>Add dates for prices</h2>
           {/* when the user changes the date, we want to pass that change up to here! */}
-          <DateRangePicker />
+          <DateRangePicker
+            datesChanged={(startDate, endDate) => {
+              console.log(startDate, endDate);
+            }}
+          />
         </aside>
 
         {/* Styling */}

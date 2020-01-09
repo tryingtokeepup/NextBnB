@@ -58,6 +58,7 @@ export default ({ datesChanged }) => {
           }}
           onDayChange={day => {
             setStartDate(day);
+            // pull newEndDate out of the loop to access it (get it out of local scope)
             const newEndDate = new Date(day);
 
             // check to see if the day picked is AFTER the endDate
@@ -88,6 +89,7 @@ export default ({ datesChanged }) => {
           }}
           onDayChange={day => {
             setEndDate(day);
+            datesChanged(startDate, day);
           }}
         />
       </div>
