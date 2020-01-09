@@ -1,6 +1,7 @@
 import houses from './houses.json';
 import House from '../components/House.js';
 import Layout from '../components/Layout';
+import TestComponent from '../components/TestComponent.js';
 
 const content = (
   <div>
@@ -12,7 +13,11 @@ const content = (
         return <House key={index} {...house} />;
       })}
     </div>
-
+    <div>
+      {houses.map((house, index) => {
+        return <TestComponent key={index} {...house} />;
+      })}
+    </div>
     <style jsx>{`
       .houses {
         display: grid;
