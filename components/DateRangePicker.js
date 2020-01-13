@@ -1,20 +1,10 @@
-// import { DayPicker } from 'react-day-picker';
-// export default () => (
-//   <div>
-//     <DayPicker
-//       onMonthChange={console.log}
-//       onDayClick={console.log}
-//       showWeekNumber
-//     />
-//   </div>
-// );
-
 import { useState } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
-import dateFnsParse from 'date-fns/parse';
-import dateFnsFormat from 'date-fns/format';
 import { DateUtils } from 'react-day-picker';
+
+import dateFnsFormat from 'date-fns/format';
+import dateFnsParse from 'date-fns/parse';
 
 const parseDate = (str, format, locale) => {
   const parsed = dateFnsParse(str, format, new Date(), { locale });
@@ -28,14 +18,11 @@ const format = 'dd MMM yyyy';
 
 const today = new Date();
 const tomorrow = new Date(today);
-
 tomorrow.setDate(tomorrow.getDate() + 1);
 
-// helper function to count nights between dates
 const numberOfNightsBetweenDates = (startDate, endDate) => {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-
+  const start = new Date(startDate); //clone
+  const end = new Date(endDate); //clone
   let dayCount = 0;
 
   while (end > start) {
@@ -57,8 +44,8 @@ export default ({ datesChanged }) => {
         <DayPickerInput
           formatDate={formatDate}
           format={format}
-          parseDate={parseDate}
           value={startDate}
+          parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
@@ -69,11 +56,7 @@ export default ({ datesChanged }) => {
           }}
           onDayChange={day => {
             setStartDate(day);
-            // pull newEndDate out of the loop to access it (get it out of local scope)
             const newEndDate = new Date(day);
-
-            // check to see if the day picked is AFTER the endDate
-            // ... if so, we need to move the endDate back until it is the day after the startDate!
             if (numberOfNightsBetweenDates(day, endDate) < 1) {
               newEndDate.setDate(newEndDate.getDate() + 1);
               setEndDate(newEndDate);
@@ -87,15 +70,17 @@ export default ({ datesChanged }) => {
         <DayPickerInput
           formatDate={formatDate}
           format={format}
-          parseDate={parseDate}
           value={endDate}
+          parseDate={parseDate}
           placeholder={`${dateFnsFormat(new Date(), format)}`}
           dayPickerProps={{
             modifiers: {
-              disabled: {
+              disabled: [
                 startDate,
-                before: startDate
-              }
+                {
+                  before: startDate
+                }
+              ]
             }
           }}
           onDayChange={day => {
@@ -104,29 +89,24 @@ export default ({ datesChanged }) => {
           }}
         />
       </div>
-      <style jsx>
-        {`
-          .date-range-picker-container div {
-            display: grid;
-            border: 1px solid #ddd;
-            grid-template-columns: 30% 70%;
-            padding: 10px;
-          }
-          label {
-            padding-top: 10px;
-          }
-        `}
-      </style>
-
-      <style jsx global>
-        {`
-          .DayPickerInput input {
-            width: 120px;
-            padding: 10px;
-            font-size: 16px;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .date-range-picker-container div {
+          display: grid;
+          border: 1px solid #ddd;
+          grid-template-columns: 30% 70%;
+          padding: 10px;
+        }
+        label {
+          padding-top: 10px;
+        }
+      `}</style>
+      <style jsx global>{`
+        .DayPickerInput input {
+          width: 120px;
+          padding: 10px;
+          font-size: 16px;
+        }
+      `}</style>
     </div>
   );
 };

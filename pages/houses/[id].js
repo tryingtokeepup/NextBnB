@@ -44,9 +44,8 @@ const House = props => {
           </article>
           <aside>
             <h2>Add dates for prices</h2>
-            <DateRangePicker />
             {/* when the user changes the date, we want to pass that change up to here! */}
-            {/* <DateRangePicker
+            <DateRangePicker
               datesChanged={(startDate, endDate) => {
                 setNumberOfNightsBetweenDates(
                   calcNumberOfNightsBetweenDates(startDate, endDate)
@@ -63,7 +62,7 @@ const House = props => {
                   ${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}
                 </p>
               </div>
-            )} */}
+            )}
           </aside>
 
           {/* Styling */}
