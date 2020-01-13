@@ -2,7 +2,7 @@ import houses from './houses.json';
 import House from '../components/House.js';
 import Layout from '../components/Layout';
 import TestComponent from '../components/TestComponent.js';
-import empty from './empty.css';
+import './empty.css';
 const content = (
   <div>
     <h1>Nextbnb</h1>

@@ -1,4 +1,4 @@
-import empty from './empty.css';
+import './empty.css';
 
 export default () => (
   <div>

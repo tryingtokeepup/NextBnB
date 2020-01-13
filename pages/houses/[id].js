@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '../../components/Layout';
-import empty from './empty.css';
+import './empty.css';
 import houses from '../houses.json';
 import DateRangePicker from '../../components/DateRangePicker';
 import { useState } from 'react';
