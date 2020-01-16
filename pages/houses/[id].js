@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Layout from '../../components/Layout';
-import './empty.css';
 import houses from '../houses.json';
 import DateRangePicker from '../../components/DateRangePicker';
 import { useState } from 'react';
@@ -44,9 +43,8 @@ const House = props => {
           </article>
           <aside>
             <h2>Add dates for prices</h2>
-            <p>quick push</p>
             {/* when the user changes the date, we want to pass that change up to here! */}
-            {/* <DateRangePicker
+            <DateRangePicker
               datesChanged={(startDate, endDate) => {
                 setNumberOfNightsBetweenDates(
                   calcNumberOfNightsBetweenDates(startDate, endDate)
@@ -63,7 +61,7 @@ const House = props => {
                   ${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}
                 </p>
               </div>
-            )} */}
+            )}
           </aside>
 
           {/* Styling */}
