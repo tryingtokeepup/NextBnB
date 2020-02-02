@@ -21,7 +21,7 @@
   "homepage": "https://github.com/tryingtokeepup/NextBnB#readme",
   "dependencies": {
     "date-fns": "^2.8.1",
-    "next": "^9.2.0",
+    "next": "^9.2.1",
     "react": "^16.12.0",
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.12.0"
